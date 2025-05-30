@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
-import Hero from "./Components/Hero/Hero";
-// import HomePage from "./Pages/HomePage/HomePage";
-import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import HomePage from "./pages/HomePage/HomePage";
+import Navbar from "./components/Navbar/Navbar";
 // import StyledEngineProvider from "@mui/material/StyledEngineProvider";
-import { StyledEngineProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from "@mui/material/styles";
+
 import { Outlet } from "react-router-dom";
 import {
   fetchFilters,
   fetchNewAlbums,
   fetchSongs,
   fetchTopAlbums,
-} from "./Api/api";
+} from "./api/api";
 
 function App() {
   const [data, setData] = useState({});
 
+  // const r = {
+  //   topAlbums: [{}, {}, {}, {}],
+  //    newAlbums: [{}, {}, {}, {}],
+  //    genres: ['rock', 'pop', 'jazz'],
+  //    songs: []
+  // };
+
   const generateData = (key, source) => {
     source().then((data) => {
       setData((prevState) => {
+        // Object.assign would also work
         return { ...prevState, [key]: data };
       });
     });
@@ -42,5 +51,11 @@ function App() {
   );
 }
 
+// {data: {
+//   topAlbums: [],
+//   newAlbums: [],
+//   genres: [],
+//   songs: []
+// }}
 
 export default App;

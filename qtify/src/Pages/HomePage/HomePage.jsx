@@ -1,8 +1,8 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
-import { fetchFilters } from "../../Api/api";
-import Hero from "../../Components/Hero/Hero";
-import Section from "../../Components/Section/Section";
+import { fetchFilters } from "../../api/api";
+import Hero from "../../components/Hero/Hero";
+import Section from "../../components/Section/Section";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
