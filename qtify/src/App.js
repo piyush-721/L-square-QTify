@@ -16,17 +16,10 @@ import {
 function App() {
   const [data, setData] = useState({});
 
-  // const r = {
-  //   topAlbums: [{}, {}, {}, {}],
-  //    newAlbums: [{}, {}, {}, {}],
-  //    genres: ['rock', 'pop', 'jazz'],
-  //    songs: []
-  // };
 
   const generateData = (key, source) => {
     source().then((data) => {
       setData((prevState) => {
-        // Object.assign would also work
         return { ...prevState, [key]: data };
       });
     });
@@ -51,11 +44,6 @@ function App() {
   );
 }
 
-// {data: {
-//   topAlbums: [],
-//   newAlbums: [],
-//   genres: [],
-//   songs: []
-// }}
+
 
 export default App;
