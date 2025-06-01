@@ -6,6 +6,9 @@ import Navbar from "./components/Navbar/Navbar";
 import { StyledEngineProvider } from "@mui/material/styles";
 
 import { Outlet } from "react-router-dom";
+// Outlet is used in React Router v6 to render the child routes (like HomePage, AlbumPage, etc.)
+// It acts like a "slot" where nested pages will appear.
+// use useOutletContext wherever the data is needed
 import {
   fetchFilters,
   fetchNewAlbums,
@@ -15,6 +18,8 @@ import {
 
 function App() {
   const [data, setData] = useState({});
+
+  // data will contain topAlbums, newAlbums, songs, genres
 
 
   const generateData = (key, source) => {
@@ -33,6 +38,7 @@ function App() {
   }, []);
 
   const { topAlbums = [], newAlbums = [], songs = [], genres = [] } = data;
+  // destructured what we need from the data 
 
   return (
     <>
